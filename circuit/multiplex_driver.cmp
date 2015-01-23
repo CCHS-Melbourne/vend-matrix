@@ -1,0 +1,269 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 22/01/2015 11:52:54 PM
+
+BeginCmp
+TimeStamp = /54A9D835;
+Reference = C1;
+ValeurCmp = 10uf;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9D844;
+Reference = C2;
+ValeurCmp = 0.1uf;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA94BD;
+Reference = C3;
+ValeurCmp = 100uF/50V;
+IdModule  = CP4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA9514;
+Reference = C4;
+ValeurCmp = 0.01uF/50V;
+IdModule  = CP4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAA72A;
+Reference = C5;
+ValeurCmp = 0.1uf/50V;
+IdModule  = CP4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAAA8F;
+Reference = C6;
+ValeurCmp = 0.01uF/50V;
+IdModule  = CP4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9D862;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-5MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA9330;
+Reference = D2;
+ValeurCmp = 1N4004;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA71E8;
+Reference = IC1;
+ValeurCmp = ATTINY84-S;
+IdModule  = so-14;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9C6AB;
+Reference = P1;
+ValeurCmp = ISCP;
+IdModule  = pin_array_3x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /54AEB2F0;
+Reference = P2;
+ValeurCmp = I2C;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54B299A0;
+Reference = P3;
+ValeurCmp = SHIFT_DRV;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BE5ABF;
+Reference = P4;
+ValeurCmp = Anodes;
+IdModule  = pin_array_8x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BE5ACC;
+Reference = P5;
+ValeurCmp = Cathod 1-8;
+IdModule  = pin_array_8x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BE5AD2;
+Reference = P6;
+ValeurCmp = Cathode 9-16;
+IdModule  = pin_array_8x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BE08F4;
+Reference = P7;
+ValeurCmp = Serial;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BB106A;
+Reference = Q1;
+ValeurCmp = BC546A;
+IdModule  = TO92;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAAE64;
+Reference = Q2;
+ValeurCmp = BC546A;
+IdModule  = TO92;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9D853;
+Reference = R1;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9CBA3;
+Reference = R2;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BB11C5;
+Reference = R3;
+ValeurCmp = 1K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAAF62;
+Reference = R4;
+ValeurCmp = 5K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA98E9;
+Reference = R5;
+ValeurCmp = 4k7;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAB11B;
+Reference = R6;
+ValeurCmp = 1K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAA101;
+Reference = R7;
+ValeurCmp = 240R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BB1B6A;
+Reference = R8;
+ValeurCmp = 5K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA9A60;
+Reference = R9;
+ValeurCmp = 1R0;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA9A44;
+Reference = R10;
+ValeurCmp = 1R0;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C0EF54;
+Reference = SHIELD1;
+ValeurCmp = ARDUINO_SHIELD;
+IdModule  = ARDUINO_SHIELD;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9CC2B;
+Reference = SW1;
+ValeurCmp = RESET;
+IdModule  = SW_PUSH_SMALL;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9B208;
+Reference = U1;
+ValeurCmp = 74HC595-16-PIN;
+IdModule  = DIP-16__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A9B221;
+Reference = U2;
+ValeurCmp = 74HC595-16-PIN;
+IdModule  = DIP-16__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA77B8;
+Reference = U3;
+ValeurCmp = 74HC595-16-PIN;
+IdModule  = DIP-16__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54987AEF;
+Reference = U4;
+ValeurCmp = TD62783AFNG;
+IdModule  = DIP-18__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /549882C0;
+Reference = U5;
+ValeurCmp = ULN2803A;
+IdModule  = DIP-18__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA836E;
+Reference = U6;
+ValeurCmp = ULN2803A;
+IdModule  = DIP-18__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BAA8E9;
+Reference = U7;
+ValeurCmp = INA282;
+IdModule  = DIP-8__300;
+EndCmp
+
+BeginCmp
+TimeStamp = /54BA9270;
+Reference = U8;
+ValeurCmp = LM317T;
+IdModule  = TO-220;
+EndCmp
+
+EndListe
