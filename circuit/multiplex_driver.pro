@@ -1,5 +1,5 @@
-update=22/01/2015 11:52:32 PM
-last_client=cvpcb
+update=23/01/2015 8:51:18 PM
+last_client=eeschema
 [pcbnew]
 version=1
 LastNetListRead=
@@ -38,6 +38,11 @@ LibName15=pga_sockets
 LibName16=valves
 LibName17=C:/Users/mage/Dropbox/Circuits/Libraries/arduino_shields
 LibDir=
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
 [eeschema]
 version=1
 LibDir=
@@ -80,8 +85,4 @@ LibName30=valves
 LibName31=multiplex_driver
 LibName32=C:/Users/mage/Dropbox/GitHub/HD44780_Backpack/Circuit/hd44780_backpack
 LibName33=C:/Users/mage/Dropbox/Circuits/Libraries/arduino_shieldsNCL
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
+LibName34=C:/Users/mage/Dropbox/Circuits/shiftin/shiftin
