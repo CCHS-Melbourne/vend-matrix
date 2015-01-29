@@ -1,3 +1,6 @@
+# Ignore my Gerbers
+circuit\Gerber\*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
