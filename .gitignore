@@ -1,5 +1,5 @@
 # Ignore my Gerbers
-circuit\Gerber\*
+Gerber*
 
 # Windows image file caches
 Thumbs.db
