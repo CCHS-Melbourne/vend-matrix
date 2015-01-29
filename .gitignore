@@ -11,6 +11,8 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+Gerber*
+
 # Windows Installer files
 *.cab
 *.msi

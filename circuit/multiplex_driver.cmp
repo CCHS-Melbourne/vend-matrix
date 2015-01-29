@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 22/01/2015 11:52:54 PM
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 26/01/2015 1:07:25 AM
 
 BeginCmp
 TimeStamp = /54A9D835;
@@ -57,17 +57,10 @@ IdModule  = D3;
 EndCmp
 
 BeginCmp
-TimeStamp = /54BA71E8;
-Reference = IC1;
-ValeurCmp = ATTINY84-S;
-IdModule  = so-14;
-EndCmp
-
-BeginCmp
-TimeStamp = /54A9C6AB;
+TimeStamp = /54C23856;
 Reference = P1;
-ValeurCmp = ISCP;
-IdModule  = pin_array_3x2;
+ValeurCmp = Keypad;
+IdModule  = pin_array_4x2;
 EndCmp
 
 BeginCmp
@@ -78,10 +71,10 @@ IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /54B299A0;
+TimeStamp = /54C261EB;
 Reference = P3;
-ValeurCmp = SHIFT_DRV;
-IdModule  = PIN_ARRAY_3X1;
+ValeurCmp = +5V;
+IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
 BeginCmp
@@ -94,7 +87,7 @@ EndCmp
 BeginCmp
 TimeStamp = /54BE5ACC;
 Reference = P5;
-ValeurCmp = Cathod 1-8;
+ValeurCmp = Cathode 1-8;
 IdModule  = pin_array_8x1;
 EndCmp
 
@@ -110,6 +103,20 @@ TimeStamp = /54BE08F4;
 Reference = P7;
 ValeurCmp = Serial;
 IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C20A8A;
+Reference = P8;
+ValeurCmp = +24V;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C4FA0B;
+Reference = P9;
+ValeurCmp = pr28v;
+IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
 BeginCmp
@@ -197,6 +204,62 @@ IdModule  = R3;
 EndCmp
 
 BeginCmp
+TimeStamp = /54C25288;
+Reference = R11;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C2540E;
+Reference = R12;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C25414;
+Reference = R13;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C23E9D;
+Reference = R14;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C23FE7;
+Reference = R15;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C23FED;
+Reference = R16;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C23FF3;
+Reference = R17;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C26446;
+Reference = R18;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
 TimeStamp = /54C0EF54;
 Reference = SHIELD1;
 ValeurCmp = ARDUINO_SHIELD;
@@ -264,6 +327,13 @@ TimeStamp = /54BA9270;
 Reference = U8;
 ValeurCmp = LM317T;
 IdModule  = TO-220;
+EndCmp
+
+BeginCmp
+TimeStamp = /54C23847;
+Reference = U9;
+ValeurCmp = CD4021B;
+IdModule  = DIP-16__300;
 EndCmp
 
 EndListe
