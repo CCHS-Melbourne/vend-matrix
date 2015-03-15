@@ -1,31 +1,46 @@
-//**************************************************************//
-//  Name    : shiftOutCode, Hello World                         //
-//  Author  : Carlyn Maw,Tom Igoe                               //
-//  Date    : 25 Oct, 2006                                      //
-//  Version : 1.0                                               //
-//  Notes   : Code for using a 74HC595 Shift Register           //
-//          : to count from 0 to 255                            //
-//****************************************************************
+//**************************************************************
+//
+// This code has several functions.
+//
+// 3x 74HC595 Shift registers in series to turn motors on and off
+// 1x CD4051 Shift in register to read button presses on the keypad
+// 1x i2c 2x16 character display.
+// 1x voltage drop reader
+// 1x coin changer [_]
+// 
+// 
+//
+//**************************************************************
 
-//Pin connected to ST_CP of 74HC595
+//Pins connected to the 74HC595 for Motor driver
 int latchPin = 4;
-//Pin connected to SH_CP of 74HC595
 int clockPin = 3;
-////Pin connected to DS of 74HC595
 int dataPin = 2;
 
+//Pins connected to the CD4051 for Keypad
+int kLatchPin = 8;
+int kClockPin = 7;
+int kDataPin = 6;
+
 void setup() {
-  //set pins to output because they are addressed in the main loop
+  //set pins Motor driver Pins to output
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
+  
+  // set pins keyboard driver pins to output/input
+  pinMode(kLatchPin, OUTPUT);
+  pinMode(kClockPin, OUTPUT);
+  pinMode(kDataPin, INPUT);
+  
+  
 }
 
 void loop() {
   //count up routine
   
   byte anode  =      B10000000;
-  byte cathode1_8 =  B11000000;
+  byte cathode1_8 =  B01000000;
   byte cathode9_16 = B00000000;
   
   
