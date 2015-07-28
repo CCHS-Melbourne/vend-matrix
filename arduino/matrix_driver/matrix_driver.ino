@@ -48,13 +48,25 @@ const int kDataPin = 6;
 const int sensorPin = A0;
 const int motorEnablePin = 5;
 
-// Values for rotation tuning.
+// Values for rotation tuning - Implemenation1.
 const unsigned int sensorTollerance = 400;
 const unsigned int idleTollerance = 10;
 
+// Values for rotation tuning - Implemenation2
+const unsigned int MOTOR_OFF_THRESHHOLD  = 15;
+const unsigned int MOTOR_ON_THRESHHOLD   = 500;
+const unsigned int MOTOR_OVER_THRESHHOLD = 970;
+
+enum motorState {
+  MOTOR_UNKNOWN,
+  MOTOR_OFF,
+  MOTOR_ON,
+  MOTOR_OVERCURRENT
+};
+
 // etherenet setup
-byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 };
-EthernetClient client;
+//byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 };
+//EthernetClient client;
 
 boolean stringComplete = false;
 
@@ -92,6 +104,7 @@ void setup() {
   while(millis() < 4000) {
     lcd.setCursor(0,0);
       lcd.print("Booting         ");
+    delay(2000);
   }
   lcd.clear();
   
@@ -126,7 +139,7 @@ void loop() {
     set_motor();
     // perform a single rotation.
     
-    if (detect_rotation()) {
+    if (detect_rotation2()) {
       lcd.setCursor(0,1);
       lcd.print("Enjoy product!  ");
     }
@@ -192,7 +205,7 @@ boolean detect_rotation() {
             count++;
             if (count > 1) {
               
-              Serial.print("Rotation ");
+              Serial.println("Rotation ");
               
               digitalWrite(motorEnablePin, HIGH);
               
@@ -222,5 +235,81 @@ boolean detect_rotation() {
       
   } // end while
   
+}
+
+// Detect Rotation2
+// Timer to stop if it's definately taking too long.
+boolean detect_rotation2() {
+  unsigned int sensorValue = 0;
+  motorState currentState = MOTOR_OFF;
+  motorState newState = MOTOR_UNKNOWN;
+  int count = 0;
+  long productTimer = millis(); // timer to set maximum run time.
+  
+  // engage the motors!
+  //digitalWrite(motorEnablePin, LOW);
+  
+  // Run this while loop forever!  we break and return true or false values when we get them.
+  while(true) {
+      // engage the motors!
+      digitalWrite(motorEnablePin, LOW); 
+    
+      // read sensor.
+      sensorValue = analogRead(sensorPin);
+
+      if (sensorValue <= MOTOR_OFF_THRESHHOLD)
+        newState = MOTOR_OFF;
+      else if (sensorValue <= MOTOR_ON_THRESHHOLD)
+        newState = MOTOR_UNKNOWN;
+      else if (sensorValue <= MOTOR_OVER_THRESHHOLD)
+        newState = MOTOR_ON;
+      else
+        newState = MOTOR_OVERCURRENT;
+        
+        Serial.print(sensorValue);
+        Serial.print("-");
+        Serial.print(newState);
+        Serial.print("-");
+        Serial.println(currentState);
+  
+      if (newState != MOTOR_UNKNOWN && newState != currentState)
+      {
+        if (currentState == MOTOR_ON && newState == MOTOR_OFF)
+        {
+          count++;
+          if (count >= 2)
+          {
+            //We have rotation
+            
+            Serial.println("Rotation ");
+              
+            digitalWrite(motorEnablePin, HIGH);
+              
+            return true; // return success!
+          }
+          
+          //Settle time
+          delay(50);
+        }
+        
+        currentState = newState;
+    
+        if (currentState == MOTOR_OVERCURRENT)
+        {
+          //Over current, stop motor and pause briefly
+          digitalWrite(motorEnablePin, HIGH);
+          Serial.println("Overcurrent");
+          delay(50);
+        }
+      }
+      
+      // check timer.
+      if (productTimer < (millis() - 4000)) {
+        Serial.println("Timeout Reached.");
+        digitalWrite(motorEnablePin, HIGH);
+        return false;
+      }
+      
+  } // end while
 }
  
