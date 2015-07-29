@@ -14,8 +14,8 @@
 
 // Include LCD.
 #include <Wire.h>
-#include <LCD.h>
-#include <LiquidCrystal_I2C.h>
+//#include <LCD.h>
+//#include <LiquidCrystal_I2C.h>
 
 // Include NFC reader
 /*
@@ -27,12 +27,12 @@
 */
 
 // include network setup.
-#include <SPI.h>
-#include <Ethernet.h>
+//#include <SPI.h>
+//#include <Ethernet.h>
 
 
 // LCD setup
-LiquidCrystal_I2C	lcd(0x27,2,1,0,4,5,6,7); // 0x27 is the I2C bus address for an unmodified backpack
+//LiquidCrystal_I2C	lcd(0x27,2,1,0,4,5,6,7); // 0x27 is the I2C bus address for an unmodified backpack
 
 //Pins connected to the 74HC595 for Motor driver
 const int latchPin = 4;
@@ -54,8 +54,8 @@ const unsigned int idleTollerance = 10;
 
 // Values for rotation tuning - Implemenation2
 const unsigned int MOTOR_OFF_THRESHHOLD  = 15;
-const unsigned int MOTOR_ON_THRESHHOLD   = 500;
-const unsigned int MOTOR_OVER_THRESHHOLD = 970;
+const unsigned int MOTOR_ON_THRESHHOLD   = 600;
+const unsigned int MOTOR_OVER_THRESHHOLD = 950;
 
 enum motorState {
   MOTOR_UNKNOWN,
@@ -89,9 +89,9 @@ void setup() {
   digitalWrite(motorEnablePin, HIGH);
  
   // initialise lcd panel.
-  lcd.begin (16,2); // for 16 x 2 LCD module
-  lcd.setBacklightPin(3,POSITIVE);
-  lcd.setBacklight(HIGH);
+  //lcd.begin (16,2); // for 16 x 2 LCD module
+  //lcd.setBacklightPin(3,POSITIVE);
+  //lcd.setBacklight(HIGH);
   
   // nfc card stuff
   // configure board to read RFID tags
@@ -102,11 +102,10 @@ void setup() {
   
   // boot process!
   while(millis() < 4000) {
-    lcd.setCursor(0,0);
-      lcd.print("Booting         ");
-    delay(2000);
+  //  lcd.setCursor(0,0);
+  //    lcd.print("Booting         ");
   }
-  lcd.clear();
+  //lcd.clear();
   
   // debug
   Serial.println("Enter ; to trigger one rotation.");
@@ -139,14 +138,14 @@ void loop() {
     set_motor();
     // perform a single rotation.
     
-    if (detect_rotation2()) {
-      lcd.setCursor(0,1);
-      lcd.print("Enjoy product!  ");
+    if (detect_rotation()) {
+      //lcd.setCursor(0,1);
+      //lcd.print("Enjoy product!  ");
     }
     else
     {
-      lcd.setCursor(0,1);
-      lcd.print("Motor Failure   ");
+      //lcd.setCursor(0,1);
+      //lcd.print("Motor Failure   ");
     }
     
     stringComplete = false;
@@ -205,7 +204,7 @@ boolean detect_rotation() {
             count++;
             if (count > 1) {
               
-              Serial.println("Rotation ");
+              Serial.print("Rotation ");
               
               digitalWrite(motorEnablePin, HIGH);
               
@@ -265,12 +264,6 @@ boolean detect_rotation2() {
         newState = MOTOR_ON;
       else
         newState = MOTOR_OVERCURRENT;
-        
-        Serial.print(sensorValue);
-        Serial.print("-");
-        Serial.print(newState);
-        Serial.print("-");
-        Serial.println(currentState);
   
       if (newState != MOTOR_UNKNOWN && newState != currentState)
       {
@@ -281,7 +274,7 @@ boolean detect_rotation2() {
           {
             //We have rotation
             
-            Serial.println("Rotation ");
+            Serial.print("Rotation ");
               
             digitalWrite(motorEnablePin, HIGH);
               
@@ -298,14 +291,12 @@ boolean detect_rotation2() {
         {
           //Over current, stop motor and pause briefly
           digitalWrite(motorEnablePin, HIGH);
-          Serial.println("Overcurrent");
           delay(50);
         }
       }
       
       // check timer.
       if (productTimer < (millis() - 4000)) {
-        Serial.println("Timeout Reached.");
         digitalWrite(motorEnablePin, HIGH);
         return false;
       }
@@ -313,3 +304,4 @@ boolean detect_rotation2() {
   } // end while
 }
  
+
